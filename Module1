@@ -1,0 +1,23 @@
+# SIT315
+int PIR = 2; //Input pin
+int LED = 13; //Output pin
+void setup()
+{
+  pinMode(PIR, INPUT);
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int PIR = digitalRead(2);
+  if (PIR == HIGH) {
+    digitalWrite(LED, HIGH);
+    Serial.println("Motion detected!"); //Display Data on screen
+    delay(500);
+  } else {
+    digitalWrite(LED, LOW);
+    Serial.println("Motion stopped!");
+  }
+  delay(1500); // Delay 1.5 seconds to improve simulation performance
+}
